@@ -4,11 +4,11 @@ import { useMemo, useState } from 'react';
 import { Typography } from '@/shared/ui/components';
 import { TReturnOrderStatus } from '@/shared/api/status-history/types';
 import { useReturnOrdersHook } from '@/shared/api/return-orders/hook';
+import { ReturnOrdersList } from '@/features/return-orders';
 import {
-  ReturnOrdersList,
-  ReturnOrdersLoading,
-  ReturnOrdersError,
-} from '@/features/return-orders';
+  ReturnOrderLoading,
+  ReturnOrderError,
+} from '@/entities/return-orders';
 
 export function ReturnOrdersPageContent() {
   const {
@@ -53,9 +53,9 @@ export function ReturnOrdersPageContent() {
           </Typography>
         </div>
 
-        {isLoading && !data && <ReturnOrdersLoading />}
+        {isLoading && !data && <ReturnOrderLoading />}
 
-        {error && <ReturnOrdersError onRetry={() => refetch()} />}
+        {error && <ReturnOrderError onRetry={() => refetch()} />}
 
         {!isLoading && !error && data && (
           <ReturnOrdersList

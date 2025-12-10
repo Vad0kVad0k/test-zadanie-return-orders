@@ -6,11 +6,11 @@ import { returnOrderHook } from '@/shared/api/return-order';
 import { useReturnOrderProductsHook, useProducts } from '@/shared/api/products/hook';
 import { useReturnOrderStatusHistoryHook } from '@/shared/api/status-history/hook';
 import { routes } from '@/shared/lib';
+import { ReturnOrderDetails } from '@/features/return-order';
 import {
   ReturnOrderLoading,
   ReturnOrderError,
-  ReturnOrderDetails,
-} from '@/features/return-order';
+} from '@/entities/return-orders';
 
 export default function ReturnDetailsPage({
   params,
@@ -32,15 +32,17 @@ export default function ReturnDetailsPage({
   const isLoading = isLoadingReturn || isLoadingProducts || isLoadingHistory;
 
   if (isLoading) {
-    return <ReturnOrderLoading />;
+    return <ReturnOrderLoading fullScreen message="Загрузка данных о возврате..." />;
   }
 
   if (error || !returnData || !returnProducts || !statusHistory) {
     return (
       <ReturnOrderError
         error={error}
+        message={error instanceof Error ? error.message : 'Не удалось загрузить данные о возврате'}
         onRetry={() => refetch()}
         onBack={() => router.push(routes.RETURN_ORDERS_LIST.getUrl())}
+        fullScreen
       />
     );
   }

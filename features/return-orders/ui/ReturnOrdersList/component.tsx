@@ -1,7 +1,8 @@
 'use client';
 
 import { Card, Typography, Tabs } from '@/shared/ui/components';
-import { ReturnsTable, ReturnOrdersEmpty } from '@/features/return-orders';
+import { ReturnsTable } from '@/features/return-orders';
+import { ReturnOrderEmpty } from '@/entities/return-orders';
 import type { TReturnOrdersListProps } from './types';
 
 export function ReturnOrdersList({
@@ -42,7 +43,7 @@ export function ReturnOrdersList({
             onSortChange={onSortChange}
           />
         ) : (
-          <ReturnOrdersEmpty hasFilter={statusFilter !== 'all'} />
+          <ReturnOrderEmpty hasFilter={statusFilter !== 'all'} />
         )}
       </Card.Content>
     </Card>

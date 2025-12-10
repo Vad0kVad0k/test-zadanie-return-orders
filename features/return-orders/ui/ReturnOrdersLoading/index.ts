@@ -1,2 +1,0 @@
-export { ReturnOrdersLoading } from './component';
-
