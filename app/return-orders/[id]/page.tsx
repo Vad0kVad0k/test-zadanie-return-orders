@@ -10,7 +10,7 @@ import {
   ReturnOrderLoading,
   ReturnOrderError,
   ReturnOrderDetails,
-} from '@/features/return-orders';
+} from '@/features/return-order';
 
 export default function ReturnDetailsPage({
   params,
