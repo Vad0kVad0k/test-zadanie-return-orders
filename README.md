@@ -80,9 +80,6 @@ npm run dev
     │       ├── index.ts
     │       └── types.ts
     │
-    ├── hooks/                        # Дополнительные хуки
-    │   ├── useOrderReturnApi.ts
-    │   └── useOrderReturnsApi.ts
     │
     ├── lib/                          # Утилиты и хелперы
     │   ├── error-boundary.tsx        # Error Boundary компонент
