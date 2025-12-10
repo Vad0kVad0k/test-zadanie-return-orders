@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Admin Dashboard - Returns Management',
-  description: 'E-commerce returns management system',
+  title: 'Админ панель - Возвраты товаров',
+  description: 'Система управления возвратами товаров',
 };
 
 export default function RootLayout({
